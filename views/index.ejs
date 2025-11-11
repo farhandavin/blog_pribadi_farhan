@@ -3,45 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Blog Farhan Davin</title>
 </head>
-<body class="container" id="index">
-<h1>blog farhan davin</h1>
+<body>
 
-<form action="/submit" method="POST"> 
-  <div class="mb-3" id="judul">
-    <label for="judul">judul</label>
-    <input type="text" name="judul" required placeholder=" masukkan judul">
-  </div>
-  <div class="mb-3" id="pesan">
-    <label for="pesan">pesan</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pesan" required placeholder="tulis sebuah pesan...."></textarea>
-    <input type="submit" value="Submit">
-  </div>
-</form> <div class="blog">
-   <% if(locals.blog && locals.blog.length > 0) { %>
-     <h2>Blog Posts</h2>
-     <ul>
-       <% locals.blog.forEach(function(post, index) { %>
-        <li class="post"><h3><%= post.judul %></h3>
-        <p><%= post.pesan %></p>
+<h1>Blog Farhan Davin</h1>
 
-        <a href="/edit/<%= index %>">edit</a>
+<main class="container">
 
-        <form action="/delete" method="post" style="display: inline;">
-          <input type="hidden" name="postIndex" value="<%= index %>">
-          <button type="submit">hapus</button>
-        </form>
-        <br>
-       
-        </li><% }); %>
-     </ul>
-  <%  } else { %>
-     <p>No blog posts available.</p>
-  <% } %>
-</div>
+    <form action="/submit" method="POST">
+        <label>
+            <input type="text" name="judul" required placeholder="Masukkan judul">
+        </label>
+        <label>
+            <textarea name="pesan" required placeholder="Tulis sebuah pesan...."></textarea>
+        </label>
+        
+        <button type="submit" class="btn-submit">Submit</button>
+    </form>
 
+    <div class="blog">
+        <% if(locals.blog && locals.blog.length > 0) { %>
+            <h2>Blog Posts</h2>
+            
+            <ul class="blog-list">
+                <% locals.blog.forEach(function(post, index) { %>
+                    <li class="post-item">
+                        <h3><%= post.judul %></h3>
+                        <p><%= post.pesan %></p>
+
+                        <div class="post-actions">
+                            <a href="/edit/<%= index %>" class="btn-link">Edit</a>
+                            
+                            <form action="/delete" method="post" style="display: inline;">
+                                <input type="hidden" name="postIndex" value="<%= index %>">
+                                <button type="submit" class="btn-delete">Hapus</button>
+                            </form>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p style="text-align: center;">Belum ada postingan.</p>
+        <% } %>
+    </div>
+
+</main> <%- include("partials/footer.ejs") %>
 </body>
-<%- include("partials/footer.ejs") %>
 </html>

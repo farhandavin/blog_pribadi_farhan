@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css"> <title>Edit Post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit Post</title>
 </head>
-<body id="edit">
+<body>
+
 <h1>Edit Post</h1>
 
-<form action="/update" method="POST" id="editForm"> 
-  <div class="mb-3" id="juduledit">
-    <label for="judul">Judul</label>
-    <input type="text" name="judul" required value="<%= post.judul %>">
-  </div>
-  <div class="mb-3" id="pesanedit">
-    <label for="pesan">Pesan</label>
-    <textarea class="form-control" rows="3" name="pesan" required><%= post.pesan %></textarea>
-  </div>
-  
-  <input type="hidden" name="postIndex" value="<%= index %>">
+<main class="container">
 
-  <input type="submit" value="Simpan Perubahan" id="submitButton">
-</form>
+    <form action="/update" method="POST">
+        <label>
+            <input type="text" name="judul" required value="<%= post.judul %>">
+        </label>
+        <label>
+            <textarea name="pesan" required><%= post.pesan %></textarea>
+        </label>
+        
+        <input type="hidden" name="postIndex" value="<%= index %>">
 
+        <button type="submit" class="btn-submit">Simpan Perubahan</button>
+    </form>
+
+</main> <%- include("partials/footer.ejs") %>
 </body>
-<%- include("partials/footer.ejs") %>
 </html>

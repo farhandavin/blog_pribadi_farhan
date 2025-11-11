@@ -1,130 +1,192 @@
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 100px;
-  }
-
-body #index {
-  
-  align-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}  
-
-#editform {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* === PENGATURAN DASAR & LATAR BELAKANG === */
+:root {
+  --color-bg: #EBECF0;
+  --color-shadow: #BABECC;
+  --color-white: #FFF;
+  --color-red: #AE1100;
+  --color-text: #61677C;
+  --ruler: 16px;
 }
 
-#edit.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}  
-
-#judul, #pesan, #juduledit, #pesanedit {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
+body, html {
+  background-color: var(--color-bg);
+  padding: 0;
+  margin: 0;
 }
 
-#judul input, #pesan textarea  {
-    width: 25%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+body, p, input, select, textarea, button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: var(--ruler);
 }
 
-#juduledit input, #pesanedit textarea {
-  width: 200%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+p {
+  color: var(--color-shadow);
+  text-shadow: 1px 1px 1px var(--color-white);
 }
 
-#judul label, #pesan label, #juduledit label, #pesanedit label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+/* === TATA LETAK & JUDUL === */
+.container {
+  max-width: 700px; /* Lebar konten agar nyaman dibaca */
+  margin: 0 auto;
+  padding: var(--ruler);
 }
 
-#pesan textarea, #pesanedit textarea {
-  
-    height: 100px;
+h1, h2, h3 {
+  color: var(--color-text);
+  text-shadow: 1px 1px 1px var(--color-white);
+  text-align: center;
 }
 
-#pesan input[type="submit"] {
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+h1 {
+  font-size: calc(var(--ruler) * 2);
+  margin-top: calc(var(--ruler) * 2);
 }
 
-#pesan, #pesanedit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  margin-bottom: 25px;
+h2 {
+  font-size: calc(var(--ruler) * 1.5);
+  margin-top: calc(var(--ruler) * 3);
+  margin-bottom: calc(var(--ruler) * 2);
 }
 
-.blog li a {
-    text-decoration: none;
-    color: white;
-    padding: 0.5rem;
-    border-bottom: 1px solid #ccc;
-    background-color: #007bff;
+/* === FORM & INPUT (GAYA TENGGELAM / INSET) === */
+form {
+  padding: var(--ruler);
 }
 
-.blog li  button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-
-}
-
-.blog h2{
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#submitButton {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  display: grid;
-}
-
-footer {
-  position: relative;
-  bottom: 0;
+label {
+  display: block;
+  margin-bottom: calc(var(--ruler) * 1.5);
   width: 100%;
-  text-align: center;
-  padding: 1rem;
 }
 
-#editForm {
+input[type="text"],
+textarea {
+  border: 0;
+  outline: 0;
+  font-size: var(--ruler);
+  border-radius: calc(var(--ruler) * 20);
+  padding: var(--ruler);
+  background-color: var(--color-bg);
+  text-shadow: 1px 1px 0 var(--color-white);
+  margin-right: calc(var(--ruler) / 2);
+  /* Ini adalah gaya Neumorphism "inset" (tenggelam) */
+  box-shadow: inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+  width: 100%;
+  box-sizing: border-box; /* Penting! */
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  /* Efek "ditekan" saat di-fokus */
+  box-shadow: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}
+
+textarea {
+  border-radius: var(--ruler); /* Textarea lebih baik kotak */
+  height: 120px;
+  resize: vertical;
+}
+
+/* === TOMBOL (GAYA TIMBUL / RAISED) === */
+button,
+.btn-link { /* Kita buat class untuk link <a> agar mirip tombol */
+  border: 0;
+  outline: 0;
+  font-size: var(--ruler);
+  border-radius: calc(var(--ruler) * 20);
+  padding: var(--ruler);
+  background-color: var(--color-bg);
+  text-shadow: 1px 1px 0 var(--color-white);
+  color: var(--color-text);
+  font-weight: bold;
+  /* Ini adalah gaya Neumorphism "raised" (timbul) */
+  box-shadow: -5px -5px 20px var(--color-white), 5px 5px 20px var(--color-shadow);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+button:hover,
+.btn-link:hover {
+  /* Efek hover, bayangan jadi lebih sempit */
+  box-shadow: -2px -2px 5px var(--color-white), 2px 2px 5px var(--color-shadow);
+}
+
+button:active,
+.btn-link:active {
+  /* Efek "ditekan" */
+  box-shadow: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}
+
+/* Tombol submit utama (lebar penuh, warna merah) */
+button.btn-submit {
+  display: block;
+  width: 100%;
+  color: var(--color-red);
+}
+
+/* === KARTU POSTINGAN BLOG (GAYA TIMBUL) === */
+.blog-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.post-item {
+  background-color: var(--color-bg);
+  padding: calc(var(--ruler) * 1.5);
+  border-radius: var(--ruler);
+  margin-bottom: calc(var(--ruler) * 1.5);
+  /* Gaya "timbul" yang sama dengan tombol */
+  box-shadow: -5px -5px 20px var(--color-white), 5px 5px 20px var(--color-shadow);
+  transition: all 0.2s ease-in-out;
+}
+
+.post-item:hover {
+  /* Efek "mengambang" saat di-hover */
+  box-shadow: -2px -2px 5px var(--color-white), 2px 2px 5px var(--color-shadow);
+  transform: translateY(-2px);
+}
+
+.post-item h3 {
+  text-align: left;
+  margin-top: 0;
+}
+
+.post-item p {
+  color: var(--color-text);
+  text-shadow: none; /* Teks di dalam kartu lebih baik polos */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Tombol aksi di dalam kartu */
+.post-actions {
+  margin-top: var(--ruler);
   display: flex;
-  flex-direction: column;
-  align-items: center;
- 
+  gap: calc(var(--ruler) / 2);
 }
 
-h1{
+.post-actions .btn-link,
+.post-actions button {
+  padding: calc(var(--ruler) * 0.75) var(--ruler); /* Buat tombol aksi lebih kecil */
+  font-size: calc(var(--ruler) * 0.9);
+  border-radius: var(--ruler);
+}
+
+.post-actions .btn-delete {
+  color: var(--color-red);
+}
+
+/* === FOOTER === */
+footer {
   text-align: center;
-  margin-bottom: 20px;
-  color:white;
-  background-color: black;
+  margin-top: 30px;
+  padding: 20px;
+  color: var(--color-shadow);
+  text-shadow: 1px 1px 1px var(--color-white);
 }
