@@ -1,47 +1,47 @@
-# Blog Pribadi Farhan
+# Farhan's Personal Blog
 
-Ini adalah proyek blog pribadi sederhana yang dibangun sebagai latihan untuk mengasah skill saya di bagian CRUD menggunakan bahasa JavaScript.
+This is a simple personal blog project built as an exercise to hone my CRUD skills using JavaScript.
 
-Blog ini memiliki fungsionalitas **CRUD (Create, Read, Update, Delete)** penuh dan menampilkan desain **Neumorphism (Soft UI)** yang modern.
+This blog features full **CRUD (Create, Read, Update, Delete)** functionality and showcases a modern **Neumorphism (Soft UI)** design.
 
 
 <img width="1916" height="907" alt="Screenshot 2025-11-11 213240" src="https://github.com/user-attachments/assets/314f8d6e-9dcb-4453-a57c-2100ea0adadb" />
 
 
-## 🚀 Fitur Utama
+## 🚀 Key Features
 
-* **Buat Postingan:** Menulis dan mempublikasikan postingan baru melalui form.
-* **Lihat Postingan:** Semua postingan ditampilkan secara kronologis di halaman utama.
-* **Edit Postingan:** Memperbarui judul dan isi postingan yang sudah ada.
-* **Hapus Postingan:** Menghapus postingan dari daftar.
-* **Desain Neumorphism:** Tampilan "Soft UI" yang unik di mana elemen terlihat "timbul" dari latar belakang.
-* **Animasi:** Efek *hover* dan *focus* yang memuaskan, serta animasi *fade-in* saat memuat postingan.
+* **Create Posts:** Write and publish new posts via a form.
+* **View Posts:** All posts are displayed chronologically on the main page.
+* **Edit Posts:** Update the title and content of existing posts.
+* **Delete Posts:** Remove posts from the list.
+* **Neumorphism Design:** A unique "Soft UI" look where elements appear "extruded" from the background.
+* **Animations:** Satisfying *hover* and *focus* effects, as well as *fade-in* animations when loading posts.
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Technologies Used
 
 * **Backend:**
-    * [**Node.js**](https://nodejs.org/): Lingkungan eksekusi JavaScript sisi server.
-    * [**Express.js**](https://expressjs.com/): Framework untuk membangun aplikasi web dan menangani routing.
+    * [**Node.js**](https://nodejs.org/): Server-side JavaScript execution environment.
+    * [**Express.js**](https://expressjs.com/): Framework for building web applications and handling routing.
 * **Frontend:**
-    * [**EJS (Embedded JavaScript)**](https://ejs.co/): Templating engine untuk merender HTML secara dinamis.
-    * **CSS3:** Untuk styling kustom, terutama untuk menciptakan efek Neumorphism dengan `box-shadow`.
-* **Struktur Proyek:**
-    * Menggunakan *partials* EJS untuk komponen yang dapat digunakan kembali (seperti header dan footer).
+    * [**EJS (Embedded JavaScript)**](https://ejs.co/): Templating engine for rendering HTML dynamically.
+    * **CSS3:** For custom styling, specifically to create Neumorphism effects using `box-shadow`.
+* **Project Structure:**
+    * Uses EJS *partials* for reusable components (like header and footer).
 
 ---
 
-## ⚙️ Instalasi dan Menjalankan Proyek
+## ⚙️ Installation and Setup
 
-Untuk menjalankan proyek ini di komputer Anda:
+To run this project on your local machine:
 
-1.  **Clone repository ini:**
+1.  **Clone this repository:**
     ```bash
-    git clone https://github.com/farhandavin/blog_pribadi_farhan.git
+    git clone [https://github.com/farhandavin/blog_pribadi_farhan.git](https://github.com/farhandavin/blog_pribadi_farhan.git)
     ```
 
-2.  **Masuk ke direktori proyek:**
+2.  **Navigate to the project directory:**
     ```bash
     cd blog_pribadi_farhan
     ```
@@ -50,13 +50,13 @@ Untuk menjalankan proyek ini di komputer Anda:
     ```bash
     npm install
     ```
-    *(Pastikan Anda sudah meng-install `express`, `ejs`, dan `body-parser`)*
+    *(Ensure `express`, `ejs`, and `body-parser` are installed)*
 
-4.  **Jalankan server:**
+4.  **Start the server:**
     ```bash
     node index.js
     ```
-    *(Atau `nodemon index.js` jika Anda menggunakannya)*
+    *(Or `nodemon index.js` if you use it)*
 
-5.  **Buka di browser:**
-    Buka `http://localhost:3000` di browser Anda.
+5.  **Open in browser:**
+    Open `http://localhost:3000` in your browser.
